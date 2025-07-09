@@ -1,0 +1,18 @@
+body {
+  display: flex;
+  flex-direction: column;
+}
+html, body {
+  height: 100%;
+  margin: 20px;
+  margin-bottom: 20%;
+  overflow: hidden;
+}
+
+.verticalForm {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  width: 100%;
+  max-width: 600px;
+}
