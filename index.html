@@ -4,10 +4,19 @@
 </head>
 <body>
 	<form class="verticalForm">
-		<input type="text"></input>
-		<textarea id="mainContent" cols="100" rows="10"></textarea>
-		<button id="submitButton"> Submit </button>
 		<input type="text" id="fileName" name="fileName"></input>
+		<div id="actionBar">
+			<select id="randomizePreset" name="randomizePreset">
+				<option value="" disabled selected>Random Preset</option>
+				<option value="decimal">Decimals</option>
+				<option value="hexadecimal">Hexadecimals</option>
+				<option value="alphabet">Alphabets</option>
+				<option value="base64">Base64</option>
+				<option value="words">Words</option>
+			</select>
+			<label for="linkToggle">Shorten links instead</label>
+			<input type="checkbox" id="linkToggle" name="linkToggle">
+		</div>
 		<textarea id="mainContent" name="mainContent" cols="100" rows="10"></textarea>
 		<button id="submitButton" name="submitButton"> Submit </button>
 	</form>
