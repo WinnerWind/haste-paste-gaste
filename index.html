@@ -8,13 +8,15 @@
 		<input type="text" id="fileName" name="fileName">
 		<div id="actionBar">
 			<select id="randomizePreset" name="randomizePreset">
-				<option value="" disabled selected>Random Preset</option>
+				<option value="" disabled unselected>Random Preset</option>
 				<option value="decimal">Decimals</option>
 				<option value="hexadecimal">Hexadecimals</option>
 				<option value="alphabet">Alphabets</option>
 				<option value="base64">Base64</option>
 				<option value="words">Words</option>
 			</select>
+			<label for="fileNameLength">File name length</label>
+			<input type="number" min="3" max="8" value="4" id="fileNameLength" name="fileNameLength">
 			<label for="linkToggle">Shorten links instead</label>
 			<input type="checkbox" id="linkToggle" name="linkToggle">
 		</div>
