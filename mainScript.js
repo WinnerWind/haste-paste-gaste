@@ -19,8 +19,6 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function handleFormData(fileName, fileNameLength, content, randomizePreset, isLink) {
-  // Do something with inputValue and textareaValue
-  // alert(`Input: ${fileName}\nTextarea: ${content}`);
   if (!fileName) {
     const numFileNameLength = Number(fileNameLength)
     switch (randomizePreset){
@@ -38,10 +36,10 @@ function handleFormData(fileName, fileNameLength, content, randomizePreset, isLi
         break;
     }
   }
-  createNewPaste(fileName,content)
+  createNewPaste(fileName, isLink, content)
 }
 
-function createNewPaste(fileName,content) {
+function createNewPaste(fileName,isLink, content) {
   const url = "https://api.winnerwind.in/pastebin"
   // const url = "http://192.168.68.105:5000/pastebin"
   const headers = {
@@ -51,7 +49,7 @@ function createNewPaste(fileName,content) {
   {
     "content": content,
     "filename": fileName,
-    "is_link": false
+    "is_link": isLink,
   })
   }).then(response => response.json())
   .then(data => {
