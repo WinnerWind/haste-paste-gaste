@@ -53,10 +53,32 @@ function createNewPaste(fileName,isLink, content) {
   })
   }).then(response => response.json())
   .then(data => {
-  console.log('Success:', data);
+  switch (Number(data['error-code'])) {
+    case 0:
+      alert("Paste completed. You can find the link at "+data['link'])
+      break
+    case 1:
+      alert("Content was not found in the request. This is probably a bug.")
+      break
+    case 2:
+      alert("Paste name was not specified. Please enter a paste name and try again.")
+      break
+    case 3:
+      alert("The specified paste name was too short. Please enter a longer paste name")
+      break
+    case 4:
+      alert("The content you gave was too big. Please paste less text.")
+      break
+    case 5:
+      alert("You have not specified any content/link. Please specify some content/link and try again")
+      break
+    case 6:
+      alert("The requested paste name is already taken. Please try again.")
+      break
+  }
   })
   .catch(error => {
-    console.error('Error:', error);
+    alert(error)
   });
 }
 
