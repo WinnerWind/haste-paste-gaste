@@ -5,7 +5,7 @@
 <body>
 	<script src="mainScript.js"></script>
 	<form class="verticalForm">
-		<input type="text" id="fileName" name="fileName">
+		<input type="text" id="fileName" name="fileName" placeholder="(Optional) Paste Name">
 		<div id="actionBar">
 			<select id="randomizePreset" name="randomizePreset">
 				<option value="" disabled unselected>Random Preset</option>
@@ -14,13 +14,19 @@
 				<option value="alphabet">Alphabets</option>
 				<option value="base64">Base64</option>
 			</select>
-			<label for="fileNameLength">File name length</label>
+			<label for="fileNameLength"><-- Randomize Preset | File name length --></label>
 			<input type="number" min="3" max="8" value="4" id="fileNameLength" name="fileNameLength">
-			<label for="linkToggle">Shorten links instead</label>
-			<input type="checkbox" id="linkToggle" name="linkToggle">
+			<label class="styled-checkbox">
+			  <input type="checkbox" id="linkToggle" name="linkToggle">
+			  <span class="checkmark"></span>
+			  <span id="toggleLabelText">Pasting Links</span>
+			</label>
+			<hr>
+			<span> Use these to generate a <br> randomized paste name </span>
 		</div>
-		<textarea id="mainContent" name="mainContent" cols="100" rows="10"></textarea>
+		<textarea id="mainContent" name="mainContent" cols="100" rows="10" placeholder="Text Content. The link you want to shorten goes here."></textarea>
 		<button id="submitButton" name="submitButton"> Submit </button>
+		<a href="https://winnerwind.in">About</a>
 	</form>
 </body>
 </html>

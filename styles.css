@@ -1,18 +1,228 @@
-body {
-  display: flex;
-  flex-direction: column;
+:root {
+  --bg-color: #000000;
+  --text-color: #1dbf00;
+  --text-disabled: #1d7700;
+  --border-color: #185518;
+  --form-bg: #001a00;
+
+  --body-font: 18px 'Fira Code', monospace;
+  --header-font: 32px 'Cascadia Mono', monospace;
+
+  --border-thickness: 3px;
+
+  --padding: 15px;
+  --gap: 1em;
+  --border-radius: 6px;
+  --button-bg: #1dbf00;
+  --button-hover-bg: #16a700;
+  --input-bg: #001100;
+  --input-placeholder: #1d7700;
+  --transition-fast: 0.25s ease;
 }
+
 html, body {
   height: 100%;
-  margin: 20px;
-  margin-bottom: 20%;
-  overflow: hidden;
+  margin: 10px;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font: var(--body-font);
+  display: flex;
+  flex-direction: column;
 }
 
 .verticalForm {
   display: flex;
   flex-direction: column;
-  gap: 1em;
+  gap: var(--gap);
   width: 100%;
+  margin: 0 auto;
+  padding: var(--padding);
+  box-sizing: border-box;
+  border: var(--border-thickness) solid var(--border-color);
+  border-radius: var(--border-radius);
+  background-color: var(--form-bg);
 }
 
+/* Inputs and textarea styling */
+input[type="text"],
+input[type="number"],
+textarea,
+select {
+  background-color: var(--input-bg);
+  color: var(--text-color);
+  border: var(--border-thickness) solid var(--border-color);
+  border-radius: var(--border-radius);
+  padding: var(--padding);
+  font-family: var(--body-font);
+  font-size: 1rem;
+  transition: border-color var(--transition-fast);
+  box-sizing: border-box;
+  outline: none;
+}
+
+input[type="text"]::placeholder,
+input[type="number"]::placeholder,
+textarea::placeholder {
+  color: var(--input-placeholder);
+}
+
+/* Input focus effect */
+input[type="text"]:focus,
+input[type="number"]:focus,
+textarea:focus,
+select:focus {
+  border-color: var(--button-bg);
+  box-shadow: 0 0 8px var(--button-bg);
+}
+
+/* Labels - stack them under inputs */
+label {
+  display: block;
+  font-size: 0.9rem;
+  color: var(--text-disabled);
+  margin-top: 0.3em;
+  user-select: none;
+}
+
+/* Checkbox container */
+.form-group-checkbox {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.3em;
+}
+
+/* Buttons */
+button, input[type="submit"] {
+  background-color: var(--button-bg);
+  border: none;
+  border-radius: var(--border-radius);
+  color: var(--bg-color);
+  font-family: var(--body-font);
+  font-size: 1.2rem;
+  padding: var(--padding);
+  cursor: pointer;
+  transition: background-color var(--transition-fast);
+  user-select: none;
+  align-self: flex-start;
+}
+
+button:hover,
+input[type="submit"]:hover {
+  background-color: var(--button-hover-bg);
+}
+
+/* Additional styling */
+#actionBar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--gap);
+  align-items: center;
+  margin-bottom: var(--gap);
+}
+
+/* Style select box */
+select {
+  cursor: pointer;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-color: var(--input-bg);
+  color: var(--text-color);
+  border: var(--border-thickness) solid var(--border-color);
+  border-radius: var(--border-radius);
+  padding: var(--padding);
+  font-family: 'Fira Code', monospace;
+  font-size: 1rem;
+  transition: border-color var(--transition-fast);
+}
+
+/* Scrollbar for textarea */
+textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+/* Scrollbar styling for webkit browsers */
+textarea::-webkit-scrollbar {
+  width: 8px;
+}
+textarea::-webkit-scrollbar-track {
+  background: #001100;
+}
+textarea::-webkit-scrollbar-thumb {
+  background-color: var(--button-bg);
+  border-radius: var(--border-radius);
+}
+
+/* Responsive */
+@media (max-width: 400px) {
+  .verticalForm {
+    padding: 10px;
+  }
+  button, input[type="submit"] {
+    width: 100%;
+  }
+  #actionBar {
+    flex-direction: column;
+  }
+}
+
+/* styled checkbox */
+.styled-checkbox {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  color: var(--text-color);
+  font-size: 1rem;
+  gap: 0.5em;
+  user-select: none;
+}
+
+/* Hide the native checkbox */
+.styled-checkbox input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  width: 0; height: 0;
+}
+
+/* Custom checkmark box */
+.styled-checkbox .checkmark {
+  display: inline-block;
+  width: 1.1em;
+  height: 1.1em;
+  border: var(--border-thickness) solid var(--border-color);
+  background: var(--input-bg);
+  border-radius: 4px;
+  box-sizing: border-box;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+/* When checked, fill with neon */
+.styled-checkbox input[type="checkbox"]:checked + .checkmark {
+  background-color: var(--button-bg);
+  border-color: var(--button-bg);
+  box-shadow: 0 0 4px var(--button-bg), 0 0 10px var(--text-color);
+}
+
+.styled-checkbox input[type="checkbox"]:checked + .checkmark::after {
+  display: block;
+}
+
+/* Number Input */
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.number-input-wrapper {
+  position: relative;
+  display: flex;
+}
