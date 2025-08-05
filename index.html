@@ -7,7 +7,7 @@
 	<form class="verticalForm">
 		<input type="text" id="fileName" name="fileName" placeholder="(Optional) Paste Name">
 		<div id="actionBar">
-			<select id="randomizePreset" name="randomizePreset">
+			<select id="randomizePreset" name="randomizePreset" autocomplete="on">
 				<option value="" disabled unselected>Random Preset</option>
 				<option value="decimal">Decimals</option>
 				<option value="hexadecimal">Hexadecimals</option>
@@ -15,9 +15,9 @@
 				<option value="base64">Base64</option>
 			</select>
 			<label for="fileNameLength"><-- Randomize Preset | File name length --></label>
-			<input type="number" min="3" max="8" value="4" id="fileNameLength" name="fileNameLength">
+			<input type="number" min="3" max="8" value="4" id="fileNameLength" name="fileNameLength" autocomplete="on">
 			<label class="styled-checkbox">
-			  <input type="checkbox" id="linkToggle" name="linkToggle">
+			  <input type="checkbox" id="linkToggle" name="linkToggle" autocomplete="on">
 			  <span class="checkmark"></span>
 			  <span id="toggleLabelText">Pasting Links</span>
 			</label>
