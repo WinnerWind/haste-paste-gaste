@@ -1,22 +1,22 @@
 :root {
-  --bg-color: #000000;
-  --text-color: #1dbf00;
-  --text-disabled: #1d7700;
-  --border-color: #185518;
-  --form-bg: #001a00;
+  --bg-color: #1d2021;
+  --text-color: #ebdbb2;
+  --text-disabled: #a89984;
+  --border-color: #8ec07c;
+  --form-bg: #282828;
+  --button-bg: #689d6a;
+  --button-hover-bg: #8ec07c;
+  --input-bg: #3c3836;
+  --input-placeholder: #d5c4a1;
 
   --body-font: 18px 'Fira Code', monospace;
   --header-font: 32px 'Cascadia Mono', monospace;
 
-  --border-thickness: 3px;
+  --border-thickness: 1px;
 
   --padding: 15px;
   --gap: 1em;
   --border-radius: 6px;
-  --button-bg: #1dbf00;
-  --button-hover-bg: #16a700;
-  --input-bg: #001100;
-  --input-placeholder: #1d7700;
   --transition-fast: 0.25s ease;
 }
 
@@ -36,6 +36,19 @@ html, body {
   gap: var(--gap);
   width: 100%;
   margin: 0 auto;
+  padding: var(--padding);
+  box-sizing: border-box;
+  border: var(--border-thickness) solid var(--border-color);
+  border-radius: var(--border-radius);
+  background-color: var(--form-bg);
+}
+
+.mainSection {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap);
+  width: 100%;
+  margin: 10px auto;
   padding: var(--padding);
   box-sizing: border-box;
   border: var(--border-thickness) solid var(--border-color);
